@@ -6,7 +6,7 @@ INSERT INTO department (name)
 VALUES 
     ("Sales"),
     ("Finance"),
-    ("Engineering")
+    ("Engineering"),
     ("Accounting");
 
 -- Inserts new values into ' role ' table
