@@ -203,3 +203,28 @@ function viewRoles() {
     );
     loadPrompts();
 }
+
+function addRole() {
+    prompt([
+        {
+            name: "role_name",
+            message: "What is the name of the new role?"
+        },
+
+        {
+            name: "role_salary",
+            message: "What is the salary of the new role?"
+        },
+
+        {
+            name: "departmentId",
+            message: "Which department does the new role belong to?"
+        }
+    ]).then(function (b) {
+        const query = 'INSERT INTO role(title, salary, department_id) VALUES (?,?,?)'
+        connection.query(query, [b.role_name, b.role_salary, b.departmentId], function (err, res) {
+            console.log("New role added!");
+        });
+        loadPrompts();
+    });
+}
