@@ -8,7 +8,7 @@ The purpose of this project was to create interfaces that allow non-developers t
 
 Repository Link: https://github.com/zavaletaosv/Employee-Management-System
 
-Video Link: 
+Video Link: https://drive.google.com/file/d/1JQ_cAAMJTdYaXb12LXofqM77VfMqJdod/view?usp=sharing
 ## Usage
 
 Once deployed, the application appears as the image attached below on a traditional desktop.

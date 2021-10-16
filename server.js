@@ -1,11 +1,13 @@
 const mysql = require("mysql2");
 const inquirer = require("inquirer");
+const util = require('util');
 require("console.table");
+
 
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "Ztadev99",
     database: "employee_db",
 });
 connection.query = util.promisify(connection.query);
@@ -15,7 +17,7 @@ connection.connect(function (err) {
 });
 
 function loadPrompts() {
-    prompt([
+    inquirer.prompt([
         {
             type: "list",
             name: "choice",
@@ -120,7 +122,7 @@ function viewEmployees() {
 }
 
 function addEmployee() {
-    prompt([
+    inquirer.prompt([
         {
             name: "first_name",
             message: "What is the employee's first name?"
@@ -150,7 +152,7 @@ function addEmployee() {
 };
 
 function updateEmployeeRole() {
-    prompt([
+    inquirer.prompt([
         {
             type: "list",
             name: "employeeId",
@@ -205,7 +207,7 @@ function viewRoles() {
 }
 
 function addRole() {
-    prompt([
+    inquirer.prompt([
         {
             name: "role_name",
             message: "What is the name of the new role?"
@@ -237,7 +239,7 @@ function viewDepartments() {
 }
 
 function addDepartment() {
-    prompt([
+    inquirer.prompt([
         {
             name: "department_name",
             message: "What is the name of the new department?"
