@@ -188,6 +188,18 @@ function updateEmployeeRole() {
         connection.query(query, [u.employeeId, u.roleId], function (err, res) {
             console.log("Employee role updated!");
         });
-        runIt();
+        loadPrompts();
     });
+}
+
+function viewRoles() {
+    connection.query(
+        `SELECT role.id, 
+        role.title, 
+        department.name AS department, 
+        role.salary 
+        FROM role 
+        LEFT JOIN department on role.department_id = department.id;`
+    );
+    loadPrompts();
 }
