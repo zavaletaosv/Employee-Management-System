@@ -32,8 +32,8 @@ function loadPrompts() {
                 },
 
                 {
-                    name: "Update Employee",
-                    value: "UPDATE_EMPLOYEE",
+                    name: "Update Employee Role",
+                    value: "UPDATE_EMPLOYEE_ROLE",
                 },
 
                 {
@@ -74,8 +74,8 @@ function loadPrompts() {
                 addEmployee();
                 break;
 
-            case "UPDATE_EMPLOYEE":
-                updateEmployee();
+            case "UPDATE_EMPLOYEE_ROLE":
+                updateEmployeeRole();
                 break;
 
             case "VIEW_DEPARTMENTS":
@@ -143,8 +143,51 @@ function addEmployee() {
     ]).then(function (a) {
         const query = 'INSERT INTO employee(first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)'
         connection.query(query, [a.first_name, a.last_name, a.role_name, a.manager_name], (req, res) => {
-            console.log('New employee added');
+            console.log('New employee added!');
         });
         loadPrompts();
     });
 };
+
+function updateEmployeeRole() {
+    prompt([
+        {
+            type: "list",
+            name: "employeeId",
+            message: "Which employee's role would you like to update?",
+            choices: [
+                "Raul Zavaleta",
+                "Maria Zavaleta",
+                "Jr Zavaleta",
+                "Francelly Zavaleta",
+                "Osvaldo Zavaleta",
+                "Omar Zavaleta",
+                "Dylan Salcedo",
+                "Lilly Perez",
+            ]
+        },
+
+        {
+            type: "list",
+            name: "roleId",
+            message: "Which role would you like to assign to the selected employee?",
+            choices: [
+                "Sales Manager",
+                "Salesperson",
+                "Finance Manager",
+                "Finance Assistant",
+                "Lead Engineer",
+                "Software Engineer",
+                "Account Manager",
+                "Accountant"
+            ]
+        }
+    ])
+    .then(function (u) {
+        const query = 'UPDATE employee SET role_id AS role.title = roleList WHERE id = employeeList`'
+        connection.query(query, [u.employeeId, u.roleId], function (err, res) {
+            console.log("Employee role updated!");
+        });
+        runIt();
+    });
+}
