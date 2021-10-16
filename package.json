@@ -1,0 +1,21 @@
+{
+  "name": "Employee-Management-System",
+  "version": "1.0.0",
+  "description": "SQL: Employee Tracker",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zavaletaosv/Employee-Management-System.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zavaletaosv/Employee-Management-System/issues"
+  },
+  "homepage": "https://github.com/zavaletaosv/Employee-Management-System#readme"
+}
