@@ -228,3 +228,10 @@ function addRole() {
         loadPrompts();
     });
 }
+
+function viewDepartments() {
+    connection.query(
+        `SELECT department.id, department.name FROM department;`
+    );
+    loadPrompts();
+}
