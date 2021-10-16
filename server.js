@@ -119,4 +119,32 @@ function viewEmployees() {
     loadPrompts();
 }
 
+function addEmployee() {
+    prompt([
+        {
+            name: "first_name",
+            message: "What is the employee's first name?"
+        },
 
+        {
+            name: "last_name",
+            message: "What is the employee's last name?"
+        }, 
+
+        {
+            name: "role_name",
+            message: "What is the employee's role?"
+        },
+
+        {
+            name: "manager_name",
+            message: "What is new employee manager's name?"
+        }
+    ]).then(function (a) {
+        const query = 'INSERT INTO employee(first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)'
+        connection.query(query, [a.first_name, a.last_name, a.role_name, a.manager_name], (req, res) => {
+            console.log('New employee added');
+        });
+        loadPrompts();
+    });
+};
