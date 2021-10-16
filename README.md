@@ -2,7 +2,7 @@
 SQL: Employee Tracker
 ## Description
 
-
+The purpose of this project was to create interfaces that allow non-developers to easily view and interact with information stored in databases.
 
 ## Links
 
