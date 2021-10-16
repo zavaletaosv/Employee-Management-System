@@ -235,3 +235,18 @@ function viewDepartments() {
     );
     loadPrompts();
 }
+
+function addDepartment() {
+    prompt([
+        {
+            name: "department_name",
+            message: "What is the name of the new department?"
+        }
+    ]) .then(function (c) {
+        const query = 'INSERT INTO department(name) VALUES (?)'
+        connection.query(query, [c.department_name], function (err, res) {
+            console.log('New department added!');
+        });
+        loadPrompts();
+    });
+}
